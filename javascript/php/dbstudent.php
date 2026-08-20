@@ -62,29 +62,29 @@ function DeleteRecord()
     Database::ManageRecord($pdo, $query);
 }
 
-// function  AutoNumbering()
-// {
-//     $pdo = Database::letsconnect();
+function  AutoNumbering()
+{
+    $pdo = Database::letsconnect();
 
-//     $sql = "SELECT InputNum
-//         FROM silpontable
-//         ORDER BY InputNum DESC
-//         LIMIT 1";
+    $sql = "SELECT InputNum
+        FROM silpontable
+        ORDER BY InputNum DESC
+        LIMIT 1";
 
-//     $stmt = $pdo->query($sql);
-//     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt = $pdo->query($sql);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-//     if ($row) {
-//         $lastNo = (int)substr($row['InputNum'], 5);
-//         $lastNo++;
-//     } else {
-//         $lastNo = 1;
-//     }
+    if ($row) {
+        $lastNo = (int)substr($row['InputNum'], 5);
+        $lastNo++;
+    } else {
+        $lastNo = 1;
+    }
 
-//     $UserNum = "User_" . str_pad($lastNo, 4, "0", STR_PAD_LEFT);
+    $UserNum = "User_" . str_pad($lastNo, 4, "0", STR_PAD_LEFT);
 
-//     echo $UserNum;
-// }
+    echo $UserNum;
+}
 
 function CheckStudent(){
     $pdo = Database::letsconnect();
@@ -111,6 +111,23 @@ function SetPin(){
         Database::ManageRecord($pdo, $sql);
         echo "1";
     }catch(Exception $e){
+        echo "0";
+    }
+}
+
+// TEMPORARY: no staff/admin table exists yet, so this checks a single
+// hardcoded credential. Change these two values, or better, replace this
+// whole function with a real lookup once you have a staff table.
+function CheckAdmin(){
+    $ADMIN_USERNAME = "admin";
+    $ADMIN_PASSWORD = "admin123";
+
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    if($username === $ADMIN_USERNAME && $password === $ADMIN_PASSWORD){
+        echo "1";
+    }else{
         echo "0";
     }
 }

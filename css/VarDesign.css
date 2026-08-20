@@ -588,6 +588,19 @@ button:active{ transform: translateY(1px); }
 .user-chip-menu a:hover{ background: var(--success-50); }
 .user-chip-menu a + a{ border-top: 1px solid var(--success-100); }
 
+.admin-chip{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.admin-chip-label{
+    font-family: var(--font-label);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--success-700);
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 860px){
     .grid, .grid.cols-3{ grid-template-columns: repeat(2, 1fr); }
@@ -600,6 +613,7 @@ button:active{ transform: translateY(1px); }
     .btn-topbar{ padding: 7px 12px; font-size: 12px; }
     .user-chip-name{ display: none; }
     .user-chip-btn{ padding: 5px; }
+    .admin-chip-label{ display: none; }
 
     body{ padding: 78px 10px 60px; }
     .letterhead{ flex-direction: column; padding: 26px 22px 22px; }

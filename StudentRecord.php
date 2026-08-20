@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/VarDesign.css">
-    <link rel="icon" href="codenisir/king.jpg" type="jpeg">
     <script src="javascript/jquery-4.0.0.min.js"></script>
 </head>
 <body id="top">
@@ -19,6 +18,12 @@
         <div class="topbar-actions">
             <button type="button" class="btn-ghost btn-topbar" id="openLoginModal">Login</button>
             <button type="button" class="btn-primary btn-topbar" id="registerNavBtn">Register</button>
+            <button type="button" class="btn-ghost btn-topbar" id="openAdminModal">Admin</button>
+
+            <div class="admin-chip" id="adminChip" style="display:none;">
+                <span class="admin-chip-label">Admin</span>
+                <button type="button" class="btn-primary btn-topbar" id="adminLogoutBtn">Logout</button>
+            </div>
 
             <div class="user-chip" id="userChip" style="display:none;">
                 <button type="button" class="user-chip-btn" id="userChipBtn">
@@ -73,6 +78,34 @@
             <div class="login-modal-footer">
                 <button type="button" class="btn-ghost" id="cancelLoginModal">Cancel</button>
                 <button type="button" class="btn-primary" id="modalLoginBtn">Log in</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-backdrop-custom" id="adminBackdrop"></div>
+<div class="login-modal" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminModalTitle">
+    <div class="login-modal-dialog">
+        <div class="login-modal-content">
+            <div class="login-modal-header">
+                <h5 id="adminModalTitle">Admin Login</h5>
+                <button type="button" class="login-modal-close" id="closeAdminModal" aria-label="Close">&times;</button>
+            </div>
+            <div class="login-modal-body">
+                <div class="grid">
+                    <div class="field span-full">
+                        <label for="adminUsername">Username<span class="req">*</span></label>
+                        <input type="text" id="adminUsername" required placeholder="Username" autocomplete="off">
+                    </div>
+                    <div class="field span-full">
+                        <label for="adminPassword">Password<span class="req">*</span></label>
+                        <input type="password" id="adminPassword" required placeholder="Password" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <div class="login-modal-footer">
+                <button type="button" class="btn-ghost" id="cancelAdminModal">Cancel</button>
+                <button type="button" class="btn-primary" id="adminLoginBtn">Log in</button>
             </div>
         </div>
     </div>
