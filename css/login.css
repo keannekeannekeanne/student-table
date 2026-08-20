@@ -1,0 +1,58 @@
+/* login.css — page-specific layout only; all colors/type/spacing tokens
+   come from VarDesign.css so this page matches StudentRecord.php exactly */
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.login-wrap{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-sheet{
+    max-width: 480px;
+    width: 100%;
+}
+
+.login-title-row{
+    padding-bottom: 20px;
+}
+
+.login-content{
+    padding: 8px 40px 34px;
+}
+
+.login-actions{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 22px 0 0;
+    background: none;
+}
+
+.login-actions .note{
+    max-width: none;
+    text-align: center;
+}
+
+.login-actions .btn-row{
+    display: flex;
+    gap: 10px;
+}
+
+.login-actions .btn-row button{
+    flex: 1;
+}
+
+@media (max-width: 520px){
+    .login-title-row,
+    .login-content{
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+}
